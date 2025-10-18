@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-100px) translateX(50px); }
+            50% { transform: translateY(-200px) translateX(-50px); }
+            75% { transform: translateY(-100px) translateX(100px); }
+        }
+
+        header {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #667eea;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            z-index: 1;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image-container {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #667eea, #764ba2) border-box;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .profile-image-box:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .profile-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-image-box.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            cursor: pointer;
+        }
+
+        .profile-image-box.empty::before {
+            content: '📷';
+            font-size: 4rem;
+            opacity: 0.5;
+        }
+
+        .profile-image-box.empty::after {
+            content: 'Add Your Photo';
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .qualification-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .qualification-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .qualification-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .qualification-item .year {
+            color: #764ba2;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .publication-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #764ba2;
+            transition: all 0.3s;
+        }
+
+        .publication-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
+        }
+
+        .publication-item h4 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .activity-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .activity-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #667eea;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #764ba2;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                max-height: 400px;
+                padding: 1rem 0;
+            }
+
+            .nav-links li {
+                text-align: center;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .hero {
+                padding: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .profile-image-box {
+                width: 150px;
+                height: 150px;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle" style="width: 80px; height: 80px; left: 10%; top: 20%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 60px; height: 60px; left: 80%; top: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="width: 100px; height: 100px; left: 50%; top: 50%; animation-delay: 4s;"></div>
+        <div class="particle" style="width: 70px; height: 70px; left: 20%; top: 70%; animation-delay: 6s;"></div>
+        <div class="particle" style="width: 90px; height: 90px; left: 70%; top: 80%; animation-delay: 8s;"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#activities">Activities</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="hero" id="home">
+            <div class="profile-image-container">
+                <div class="profile-image-box empty" id="profileImage">
+                    <!-- Add your image here: <img src="your-image.jpg" alt="Your Name"> -->
+                </div>
+            </div>
+            <h1>Welcome to My Portfolio</h1>
+            <p>Passionate Professional | Researcher | Creative Thinker</p>
+            <a href="#summary" class="btn">Explore My Work</a>
+        </div>
+
+        <section id="summary">
+            <h2>Professional Summary</h2>
+            <p class="summary">
+                Dynamic and results-oriented professional with extensive experience in research, development, and innovation. 
+                Proven track record of delivering high-quality projects and contributing to academic and professional communities. 
+                Strong analytical skills combined with creative problem-solving abilities. Committed to continuous learning and 
+                professional development. Experienced in collaborative environments and skilled at communicating complex ideas 
+                effectively to diverse audiences. Passionate about leveraging technology and research to create meaningful impact 
+                in the field.
+            </p>
+        </section>
+
+        <section id="qualifications">
+            <h2>Qualifications</h2>
+            
+            <div class="qualification-item">
+                <h3>Master of Science in Computer Science</h3>
+                <p class="year">2021 - 2023</p>
+                <p>University Name | GPA: 3.9/4.0</p>
+                <p>Specialized in Machine Learning and Artificial Intelligence</p>
+            </div>
+
+            <div class="qualification-item">
+                <h3>Bachelor of Technology in Information Technology</h3>
+                <p class="year">2017 - 2021</p>
+                <p>College Name | First Class with Distinction</p>
+                <p>Focus on Software Engineering and Data Structures</p>
+            </div>
+
+            <div class="qualification-item">
+                <h3>Professional Certifications</h3>
+                <p class="year">2020 - Present</p>
+                <p>• AWS Certified Solutions Architect</p>
+                <p>• Google Cloud Professional Data Engineer</p>
+                <p>• Certified Scrum Master (CSM)</p>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+
+            <div class="publication-item">
+                <h4>Advanced Machine Learning Techniques for Predictive Analytics</h4>
+                <p><strong>Authors:</strong> Your Name, Co-Author Name</p>
+                <p><strong>Journal:</strong> International Journal of AI Research, 2023</p>
+                <p>Explored novel approaches to predictive modeling using ensemble methods and deep learning architectures.</p>
+            </div>
+
+            <div class="publication-item">
+                <h4>Optimization Strategies in Cloud Computing Infrastructure</h4>
+                <p><strong>Authors:</strong> Your Name, Team Members</p>
+                <p><strong>Conference:</strong> IEEE Cloud Computing Conference, 2022</p>
+                <p>Presented innovative cost-optimization strategies for large-scale cloud deployments.</p>
+            </div>
+
+            <div class="publication-item">
+                <h4>Cybersecurity Frameworks for IoT Devices</h4>
+                <p><strong>Authors:</strong> Your Name</p>
+                <p><strong>Journal:</strong> Journal of Network Security, 2021</p>
+                <p>Developed comprehensive security framework addressing vulnerabilities in IoT ecosystems.</p>
+            </div>
+        </section>
+
+        <section id="activities">
+            <h2>Curricular Activities</h2>
+            
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <h3>🏆 Hackathon Winner</h3>
+                    <p>First place in National Tech Hackathon 2023. Developed an innovative healthcare app.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>🎤 Conference Speaker</h3>
+                    <p>Presented research at 3 international conferences on AI and machine learning.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>👥 Club President</h3>
+                    <p>Led Computer Science Club with 200+ members. Organized workshops and coding events.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>📚 Workshop Facilitator</h3>
+                    <p>Conducted workshops on web development and data science for students.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>🌟 Volunteer Work</h3>
+                    <p>Teaching coding to underprivileged students through NGO partnerships.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>🎓 Research Assistant</h3>
+                    <p>Assisted professors in cutting-edge research projects on neural networks.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">Email</a>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
