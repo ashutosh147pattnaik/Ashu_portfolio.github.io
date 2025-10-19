@@ -80,6 +80,7 @@
             text-align: center;
             z-index: 2;
             animation: fadeInUp 1s ease;
+            padding: 2rem;
         }
 
         .profile-photo {
@@ -133,12 +134,14 @@
             gap: 1rem;
             justify-content: center;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .contact-links a {
             color: #667eea;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .contact-links a:hover {
@@ -208,7 +211,7 @@
         /* Section Styles */
         section {
             padding: 5rem 5%;
-            min-height: 100vh;
+            min-height: auto;
         }
 
         .section-title {
@@ -537,7 +540,43 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+        }
+
         @media (max-width: 768px) {
+            nav {
+                padding: 1rem 3%;
+            }
+
+            nav ul {
+                gap: 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -550,23 +589,256 @@
                 font-size: 1rem;
             }
 
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-links {
+                gap: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .contact-links a {
+                font-size: 0.85rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.8rem;
+                margin: 0.5rem 0.3rem;
+                font-size: 0.95rem;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
+            .section-title a {
+                font-size: 0.8rem;
+                display: block;
+                margin-top: 0.5rem;
+            }
+
+            .about-content {
+                font-size: 1rem;
+            }
+
+            .about-content p {
+                margin-bottom: 1rem;
+            }
+
+            .experience-card {
+                padding: 1.5rem;
+            }
+
+            .experience-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .experience-card li {
+                font-size: 0.95rem;
+                padding-left: 1rem;
+            }
+
+            .skills-category h3 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .skill-card {
+                padding: 1rem;
+            }
+
+            .skill-card h4 {
+                font-size: 1rem;
+            }
+
+            .skill-card p {
+                font-size: 0.8rem;
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
+            .project-icon {
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            .project-content {
+                padding: 1.2rem;
+            }
+
+            .project-content h3 {
+                font-size: 1.15rem;
+            }
+
+            .project-tools {
+                font-size: 0.8rem;
+            }
+
+            .project-content ul {
+                font-size: 0.9rem;
+            }
+
+            .project-content li {
+                padding-left: 1rem;
+            }
+
+            .cert-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .cert-card {
+                padding: 1.2rem;
+            }
+
+            .cert-card h4 {
+                font-size: 1rem;
+            }
+
+            .publication-container {
+                padding: 0;
+            }
+
+            .publication-card {
+                padding: 1.5rem;
+            }
+
+            .publication-icon {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .publication-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .publication-card p {
+                font-size: 0.95rem;
+            }
+
+            .publication-link {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .contact-info {
+                padding: 0 1rem;
+            }
+
+            .contact-info a {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem 3%;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
             .profile-photo {
-                width: 150px;
-                height: 150px;
-                font-size: 3rem;
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 1.5rem;
+            }
+
+            .contact-links {
+                gap: 0.3rem;
+                flex-direction: column;
+            }
+
+            .contact-links a {
+                font-size: 0.8rem;
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                margin: 0.3rem;
+                font-size: 0.9rem;
+                display: block;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-content {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .experience-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .experience-card li {
+                font-size: 0.9rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card h4 {
+                font-size: 0.95rem;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .publication-card p {
+                font-size: 0.9rem;
+            }
+
+            .contact-info a {
+                font-size: 0.95rem;
+            }
+
+            section {
+                padding: 2rem 3%;
             }
         }
     </style>
@@ -678,7 +950,7 @@
                         <h4>🤝 Stakeholder Communication</h4>
                     </div>
                     <div class="skill-card">
-                        <h4>🔢 Quantitative Analysis</h4>
+                        <h4>📊 Quantitative Analysis</h4>
                     </div>
                     <div class="skill-card">
                         <h4>📋 Decision Support</h4>
@@ -708,7 +980,7 @@
             </div>
             
             <div class="project-card">
-                <div class="project-icon">🛍️</div>
+                <div class="project-icon">🛒</div>
                 <div class="project-content">
                     <h3>E-commerce: Diwali Sales Analysis</h3>
                     <p class="project-tools">Tools: Python (Pandas, Matplotlib, Seaborn)</p>
@@ -833,4 +1105,3 @@
     </script>
 </body>
 </html>
-
