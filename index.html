@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Ashutosh Pattnaik — Data Analyst portfolio showcasing Power BI dashboards, Python projects, academic background, and contact details." />
-  <title>Ashutosh Pattnaik — Data Analyst Portfolio</title>
+  <meta name="description" content="Ashutosh Pattnaik – Data Analyst portfolio showcasing Power BI dashboards, Python projects, academic background, and contact details." />
+  <title>Ashutosh Pattnaik – Data Analyst Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     /* === THEME & LAYOUT === */
@@ -43,39 +43,45 @@
     .skip:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.4rem .6rem;background:#000;border-radius:8px}
 
     /* header */
-    header{position:fixed;inset:0 0 auto 0;z-index:1100;padding:1rem 5%;backdrop-filter:blur(8px);background:linear-gradient(180deg,rgba(0,0,0,.55),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
+    header{position:fixed;inset:0 0 auto 0;z-index:1100;padding:1rem 4%;backdrop-filter:blur(8px);background:linear-gradient(180deg,rgba(0,0,0,.55),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
     .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .brand{display:flex;align-items:center;gap:.75rem}
-    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--neon-c),var(--neon-p));display:grid;place-items:center;color:#050307;font-weight:700}
-    .brand h1{font-size:1rem;font-weight:700;background:var(--accent);-webkit-background-clip:text;color:transparent}
+    .brand{display:flex;align-items:center;gap:.75rem;min-width:0}
+    .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--neon-c),var(--neon-p));display:grid;place-items:center;color:#050307;font-weight:700;flex-shrink:0;font-size:0.85rem}
+    .brand h1{font-size:0.95rem;font-weight:700;background:var(--accent);-webkit-background-clip:text;color:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-    nav ul{display:flex;gap:1rem;list-style:none}
-    nav a{padding:.45rem .6rem;border-radius:8px;color:var(--muted);text-decoration:none;font-weight:600;transition:all .18s var(--ease)}
+    nav ul{display:flex;gap:0.5rem;list-style:none}
+    nav a{padding:.45rem .6rem;border-radius:8px;color:var(--muted);text-decoration:none;font-weight:600;transition:all .18s var(--ease);font-size:0.95rem}
     nav a:hover,nav a:focus{color:var(--neon-c);transform:translateY(-2px)}
 
     /* mobile nav */
-    .menu-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:1.2rem}
+    .menu-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:0.5rem}
     @media (max-width:900px){
-      nav ul{position:fixed;right:1rem;top:72px;background:linear-gradient(180deg,rgba(10,10,12,.95),rgba(5,5,7,.95));padding:1rem;border-radius:12px;display:none;flex-direction:column;min-width:200px}
+      nav ul{position:fixed;right:1rem;top:60px;background:linear-gradient(180deg,rgba(10,10,12,.95),rgba(5,5,7,.95));padding:1.2rem 1rem;border-radius:12px;display:none;flex-direction:column;min-width:180px;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
       nav ul.open{display:flex}
       .menu-toggle{display:block}
+      nav a{padding:0.5rem;width:100%;text-align:left;font-size:0.9rem}
+      nav a:hover{transform:translateX(4px)}
+      .brand h1{font-size:0.85rem}
+      .logo{width:36px;height:36px;font-size:0.75rem}
     }
 
     /* hero */
-    .hero{min-height:88vh;display:grid;place-items:center;padding:6rem 5% 4rem;position:relative}
-    .hero .wrap{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:2.2rem;align-items:center}
+    .hero{min-height:85vh;display:grid;place-items:center;padding:5.5rem 4% 3rem;position:relative}
+    .hero .wrap{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:2.2rem;align-items:center;width:100%}
     .left h2{font-size:2.6rem;line-height:1.02;margin-bottom:.6rem;background:var(--accent);-webkit-background-clip:text;color:transparent}
-    .tag{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:linear-gradient(90deg,rgba(0,245,255,.06),rgba(255,77,255,.04));color:var(--neon-c);font-weight:700;margin-bottom:.6rem}
-    .lead{color:var(--muted);margin-bottom:1rem}
+    .tag{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:linear-gradient(90deg,rgba(0,245,255,.06),rgba(255,77,255,.04));color:var(--neon-c);font-weight:700;margin-bottom:.6rem;font-size:0.85rem}
+    .lead{color:var(--muted);margin-bottom:1rem;font-size:0.95rem;line-height:1.5}
     .ctas{display:flex;gap:.8rem;flex-wrap:wrap}
-    .btn{background:linear-gradient(90deg,var(--neon-c),var(--neon-p));color:#050307;padding:.7rem 1.1rem;border-radius:999px;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.6)}
-    .ghost{background:transparent;border:1px solid rgba(255,255,255,.04);padding:.6rem .9rem;border-radius:12px;color:var(--muted)}
+    .btn{background:linear-gradient(90deg,var(--neon-c),var(--neon-p));color:#050307;padding:.7rem 1.1rem;border-radius:999px;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.6);font-size:0.9rem;transition:all .18s var(--ease)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,245,255,.2)}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,.04);padding:.6rem .9rem;border-radius:12px;color:var(--muted);font-size:0.9rem;cursor:pointer;text-decoration:none;transition:all .18s var(--ease)}
+    .ghost:hover{border-color:rgba(0,245,255,.18);color:var(--neon-c)}
 
     /* profile */
     .profile{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:1.25rem;border-radius:18px;border:1px solid rgba(255,255,255,.04);text-align:center}
     .avatar{width:160px;height:160px;border-radius:999px;margin:0 auto 1rem;overflow:hidden;border:4px solid rgba(0,245,255,.12)}
     .avatar img{width:100%;height:100%;object-fit:cover}
-    .role{color:var(--muted);margin-bottom:.25rem}
+    .role{color:var(--muted);margin-bottom:.25rem;font-size:0.9rem}
 
     /* animated background particles (CSS only) */
     .particles{position:absolute;inset:0;pointer-events:none;opacity:.12}
@@ -84,31 +90,32 @@
     .p.c2{width:260px;height:260px;background:radial-gradient(circle at 60% 60%,#ff4dff,transparent 35%);left:-80px;bottom:-100px}
 
     /* sections */
-    main{padding-top:110px}
-    section{padding:4rem 5%}
+    main{padding-top:100px}
+    section{padding:3.5rem 4%}
     .section-title{text-align:center;font-size:1.9rem;margin-bottom:2rem;background:var(--accent);-webkit-background-clip:text;color:transparent}
 
     .grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:var(--maxw);margin:0 auto}
     .card{background:var(--glass);padding:1.25rem;border-radius:14px;border:1px solid rgba(255,255,255,.03);transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
     .card:hover{transform:translateY(-8px);box-shadow:0 12px 40px rgba(0,245,255,.08)}
-    .card h3{color:var(--neon-c);margin-bottom:.4rem}
+    .card h3{color:var(--neon-c);margin-bottom:.4rem;font-size:1.05rem}
     .muted{color:var(--muted)}
 
     /* project card interactive */
     .project{position:relative;overflow:hidden}
-    .project .meta{display:flex;justify-content:space-between;align-items:center}
-    .project .tools{font-size:.85rem;color:var(--muted)}
-    .project .preview{height:140px;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.25));display:flex;align-items:center;justify-content:center;margin-top:.75rem}
+    .project .meta{display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;flex-wrap:wrap}
+    .project .meta h3{flex:1}
+    .project .tools{font-size:.8rem;color:var(--muted)}
+    .project .preview{height:120px;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.25));display:flex;align-items:center;justify-content:center;margin-top:.75rem;font-size:0.85rem}
     .project .preview span{color:var(--muted)}
-    .actions{display:flex;gap:.5rem;margin-top:.75rem}
-    .chip{background:transparent;border:1px solid rgba(255,255,255,.04);padding:.45rem .7rem;border-radius:999px;color:var(--muted);cursor:pointer}
+    .actions{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap}
+    .chip{background:transparent;border:1px solid rgba(255,255,255,.04);padding:.45rem .7rem;border-radius:999px;color:var(--muted);cursor:pointer;font-size:0.85rem;transition:all .18s var(--ease);text-decoration:none}
     .chip:hover{border-color:rgba(0,245,255,.18);color:var(--neon-c)}
 
     /* modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(2,2,3,.6);display:none;place-items:center;z-index:1500}
-    .modal{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));padding:1.5rem;border-radius:16px;max-width:720px;width:94%;border:1px solid rgba(255,255,255,.04);box-shadow:var(--shadow)}
-    .modal h3{margin-bottom:.5rem}
-    .close{background:transparent;border:0;color:var(--muted);font-weight:700}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,2,3,.6);display:none;place-items:center;z-index:1500;padding:1rem}
+    .modal{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));padding:1.5rem;border-radius:16px;max-width:720px;width:100%;border:1px solid rgba(255,255,255,.04);box-shadow:var(--shadow)}
+    .modal h3{margin-bottom:.5rem;font-size:1.3rem}
+    .close{background:transparent;border:0;color:var(--muted);font-weight:700;font-size:1.5rem;cursor:pointer;padding:0}
 
     /* skills bars */
     .skill{display:flex;flex-direction:column;gap:.5rem}
@@ -116,12 +123,74 @@
     .fill{height:100%;background:linear-gradient(90deg,var(--neon-c),var(--neon-p));width:60%}
 
     /* footer */
-    footer{padding:2rem 5%;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,.03)}
+    footer{padding:2rem 4%;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,.03);font-size:0.85rem}
 
     /* responsive tweaks */
     @media (max-width:920px){
-      .hero .wrap{grid-template-columns:1fr}
-      .avatar{width:140px;height:140px}
+      .hero .wrap{grid-template-columns:1fr;gap:1.5rem}
+      .avatar{width:130px;height:130px}
+      .left h2{font-size:2rem}
+      .lead{font-size:0.9rem}
+      .profile{max-width:100%}
+    }
+
+    @media (max-width:640px){
+      header{padding:0.75rem 3%}
+      .nav{gap:0.5rem}
+      .brand h1{display:none}
+      .logo{width:36px;height:36px;font-size:0.7rem}
+
+      .hero{padding:4.5rem 3% 2rem;min-height:auto}
+      .hero .wrap{gap:1.5rem}
+      .left h2{font-size:1.6rem;line-height:1.1}
+      .left p{font-size:0.85rem}
+      .tag{font-size:0.75rem;padding:0.3rem 0.6rem}
+      .lead{margin-bottom:0.8rem}
+      .ctas{gap:0.6rem;justify-content:flex-start}
+      .btn, .ghost{padding:0.6rem 0.9rem;font-size:0.85rem}
+
+      .avatar{width:120px;height:120px}
+      .profile{padding:1rem}
+
+      section{padding:2.5rem 3%}
+      .section-title{font-size:1.4rem;margin-bottom:1.5rem}
+      .grid{gap:1rem;grid-template-columns:1fr}
+
+      .card{padding:1rem}
+      .card h3{font-size:0.95rem}
+      .card p{font-size:0.85rem}
+      
+      .project .meta{flex-direction:column;gap:0.3rem}
+      .project .tools{font-size:0.75rem}
+      .project .preview{height:100px;font-size:0.8rem}
+      .actions{gap:0.4rem}
+      .chip{padding:0.4rem 0.6rem;font-size:0.75rem}
+
+      .modal{padding:1.2rem;border-radius:12px}
+      .modal h3{font-size:1.1rem;margin-bottom:0.4rem}
+      .modal p{font-size:0.9rem}
+
+      nav ul{top:54px;right:0.5rem;padding:1rem;min-width:160px}
+      nav a{padding:0.4rem;font-size:0.85rem}
+
+      footer{padding:1.5rem 3%;font-size:0.8rem}
+    }
+
+    @media (max-width:480px){
+      .left h2{font-size:1.3rem;margin-bottom:0.4rem}
+      .lead{margin-bottom:0.6rem;line-height:1.4}
+      .ctas{flex-direction:column}
+      .btn, .ghost{width:100%;text-align:center}
+
+      .section-title{font-size:1.2rem}
+      .grid{gap:0.8rem}
+
+      .card{padding:0.9rem}
+      .modal h3{font-size:1rem}
+
+      .project .preview{height:80px}
+
+      nav ul{min-width:140px;padding:0.8rem}
     }
 
     @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -160,7 +229,7 @@
         <div class="left">
           <div class="tag">Data Analyst • Power BI • Python</div>
           <h2>Turning messy data into neon-bright decisions</h2>
-          <p class="lead">I design interactive dashboards, automate analysis pipelines, and translate complex datasets into business-ready narratives. B.Tech CSE — projects across Power BI, Python & ML.</p>
+          <p class="lead">I design interactive dashboards, automate analysis pipelines, and translate complex datasets into business-ready narratives. B.Tech CSE – projects across Power BI, Python & ML.</p>
 
           <div class="ctas">
             <button class="btn" id="viewProjects">See Projects</button>
@@ -168,7 +237,7 @@
             <a class="ghost" href="#contact">Contact</a>
           </div>
 
-          <p class="muted" style="margin-top:1rem">Available for internships, freelance dashboard builds & entry-level roles</p>
+          <p class="muted" style="margin-top:1rem;font-size:0.85rem">Available for internships, freelance dashboard builds & entry-level roles</p>
         </div>
 
         <aside class="profile" aria-labelledby="profileName">
@@ -177,7 +246,7 @@
           </div>
           <h3 id="profileName">Ashutosh Pattnaik</h3>
           <div class="role">Data Analyst</div>
-          <div style="margin-top:.8rem;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap">
+          <div style="margin-top:.8rem;display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap">
             <a class="chip" href="tel:8280858066">📞 8280858066</a>
             <a class="chip" href="mailto:ashutoshpattnaik147@gmail.com">📧 Email</a>
             <a class="chip" href="https://linktr.ee/ashutoshlinks" target="_blank">🔗 Linktree</a>
@@ -189,16 +258,16 @@
     <section id="about">
       <h2 class="section-title">About</h2>
       <div class="card">
-        <p>I’m a B.Tech (CSE) grad from NIST, Berhampur. I build stakeholder-focused analytics: Power BI dashboards, reproducible Python notebooks, and SQL-driven data pipelines. My focus is on clear visuals, fast insights, and solutions that teams actually use.</p>
+        <p>I'm a B.Tech (CSE) grad from NIST, Berhampur. I build stakeholder-focused analytics: Power BI dashboards, reproducible Python notebooks, and SQL-driven data pipelines. My focus is on clear visuals, fast insights, and solutions that teams actually use.</p>
       </div>
     </section>
 
     <section id="academic">
       <h2 class="section-title">Academic Background</h2>
       <div class="grid">
-        <div class="card"><h3>B.Tech, Computer Science Engineering</h3><p class="muted">NIST, Berhampur — 2020–2024</p></div>
-        <div class="card"><h3>Intermediate, Science</h3><p class="muted">Kendriya Vidyalaya — 2018–2020</p></div>
-        <div class="card"><h3>Matriculation</h3><p class="muted">Kendriya Vidyalaya — 2017–2018</p></div>
+        <div class="card"><h3>B.Tech, Computer Science Engineering</h3><p class="muted">NIST, Berhampur – 2020–2024</p></div>
+        <div class="card"><h3>Intermediate, Science</h3><p class="muted">Kendriya Vidyalaya – 2018–2020</p></div>
+        <div class="card"><h3>Matriculation</h3><p class="muted">Kendriya Vidyalaya – 2017–2018</p></div>
       </div>
     </section>
 
@@ -272,7 +341,7 @@
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="card" style="text-align:center">
-        <p class="muted">Let's connect — I'm open to internships, freelance data work, and full-time roles.</p>
+        <p class="muted">Let's connect – I'm open to internships, freelance data work, and full-time roles.</p>
         <p style="margin-top:1rem">📞 <a href="tel:8280858066" style="color:var(--neon-c);text-decoration:none">8280858066</a></p>
         <p>📧 <a href="mailto:ashutoshpattnaik147@gmail.com" style="color:var(--neon-p);text-decoration:none">ashutoshpattnaik147@gmail.com</a></p>
         <p>🔗 <a href="https://linktr.ee/ashutoshlinks" target="_blank" style="color:var(--neon-c);text-decoration:none">Linktree</a></p>
@@ -282,7 +351,7 @@
   </main>
 
   <footer>
-    <div style="max-width:var(--maxw);margin:0 auto">&copy; 2025 Ashutosh Pattnaik — Built with ❤️ • Data Analyst</div>
+    <div style="max-width:var(--maxw);margin:0 auto">&copy; 2025 Ashutosh Pattnaik – Built with ❤️ • Data Analyst</div>
   </footer>
 
   <!-- Modal structure for project details -->
@@ -309,6 +378,14 @@
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
+    // Close menu when link is clicked
+    navList && navList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // Smooth scrolling for main cta
     document.getElementById('viewProjects').addEventListener('click', ()=>{
       document.getElementById('projects').scrollIntoView({behavior:'smooth',block:'start'});
@@ -317,7 +394,7 @@
     // Project modal details (data-driven)
     const projectData = {
       healthcare: {
-        title: 'Healthcare Analytics — Diabetes Dashboard',
+        title: 'Healthcare Analytics – Diabetes Dashboard',
         desc: 'Interactive Power BI dashboard built for diabetes monitoring. Implemented advanced DAX measures, drill-through UX and KPIs that reduced clinician analysis time by ~20%. Focused on accessible charts and actionable summaries for decision-makers.',
         link1: '#', link1Text: 'View demo', link2: '#', link2Text: 'GitHub'
       },
