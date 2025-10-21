@@ -17,6 +17,7 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#667eea">
     
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ashutosh Pattnaik - Data Analyst & Power BI Specialist">
     <meta property="og:description" content="Explore my data analytics portfolio featuring interactive dashboards, advanced SQL queries, and machine learning projects.">
@@ -24,22 +25,25 @@
     <meta property="og:url" content="https://ashutoshpattnaik.com">
     <meta property="og:site_name" content="Ashutosh Pattnaik Portfolio">
     
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ashutosh Pattnaik - Data Analyst & Power BI Specialist">
     <meta name="twitter:description" content="Explore my data analytics portfolio featuring interactive dashboards and business intelligence solutions.">
     <meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/AP1GczPUHSWMpE6TTtxdIZCfBpixK4DYltwcKmq-hICx6f4Zu6UQWgDPwjl5X_H4yzOQ4LLQ0zIPPTILMwNY8jJtQCACUSG8m0SMcFM2p73wxPqIyKBmRTE=w1920-h1080">
     
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://ashutoshpattnaik.com">
     
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23667eea' width='100' height='100'/><text x='50' y='70' font-size='60' font-weight='bold' text-anchor='middle' fill='white'>AP</text></svg>">
     
+    <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://lh3.googleusercontent.com">
     
     <title>Ashutosh Pattnaik - Data Analyst & Power BI Specialist | Interactive Portfolio</title>
     
     <style>
-        /* ... [All your CSS styles are here] ... */
         * {
             margin: 0;
             padding: 0;
@@ -1010,87 +1014,7 @@
             }
         }
     </style>
-
-    <script>
-        // --- CONFIGURATION ---
-        // ⚠️ IMPORTANT: Paste your Web App URL from Step 7 here
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxuZY7Mtad-onP9PJeyZiGiICdDqSVlBNp8pjO8eJtmkex-LCRwPxZRX0PDB950DH-Q0w/exec";
-        // --- END CONFIGURATION ---
-
-        (function() {
-            // Don't run this script for bots/crawlers
-            if (navigator.userAgent.includes("bot") || navigator.userAgent.includes("crawl")) {
-                return;
-            }
-
-            const startTime = performance.now();
-
-            function getDeviceType() {
-                const ua = navigator.userAgent;
-                if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-                    return "Tablet";
-                }
-                if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
-                    return "Mobile";
-                }
-                return "Desktop";
-            }
-
-            async function getIpInfo() {
-                try {
-                    // We use a free, no-signup-required IP API
-                    const response = await fetch("https://ipapi.co/json/");
-                    if (!response.ok) {
-                        return { ip: "Error", city: "Error", country: "Error" };
-                    }
-                    const data = await response.json();
-                    return {
-                        ip: data.ip,
-                        city: data.city,
-                        country: data.country_name
-                    };
-                } catch (error) {
-                    return { ip: "N/A", city: "N/A", country: "N/A" };
-                }
-            }
-
-            async function sendAnalyticsData() {
-                const endTime = performance.now();
-                const timeSpent = Math.round((endTime - startTime) / 1000);
-                const deviceType = getDeviceType();
-                const ipInfo = await getIpInfo();
-                
-                const payload = {
-                    ...ipInfo,
-                    timeSpent: timeSpent,
-                    deviceType: deviceType
-                };
-
-                // Use navigator.sendBeacon to ensure data is sent even when page is closing
-                if (navigator.sendBeacon) {
-                    const blob = new Blob([JSON.stringify(payload)], { type: 'application/json; charset=UTF-8' });
-                    navigator.sendBeacon(WEB_APP_URL, blob);
-                } else {
-                    // Fallback for very old browsers (less reliable)
-                    fetch(WEB_APP_URL, {
-                        method: 'POST',
-                        body: JSON.stringify(payload),Yeah once I set up a time 
-                        keepalive: true
-                    });
-                }
-            }
-
-            // Send data when the user leaves the page
-            // 'visibilitychange' is more reliable than 'beforeunload' for modern browsers
-            document.addEventListener('visibilitychange', function() {
-                if (document.visibilityState === 'hidden') {
-                    sendAnalyticsData();
-                }
-            });
-
-        })();
-    </script>
-    </head>
+</head>
 <body>
     <a href="#main" class="skip-to-main">Skip to main content</a>
     
@@ -1356,7 +1280,7 @@
     </main>
 
     <footer role="contentinfo">
-        <p>© 2025 Ashutosh Pattnaik. All rights reserved.</p>
+        <p>&copy; 2025 Ashutosh Pattnaik. All rights reserved.</p>
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">Data Analyst | Power BI Specialist</p>
     </footer>
 
